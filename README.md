@@ -1,58 +1,86 @@
-# [🌍 Lista de Países usando Next.js](https://codante.io/mini-projetos/lista-de-paises-nextjs)
+## 🌍 Lista de Países com Next.js 13
 
-Explore o poder da versão 13 do Next.js criando uma lista de países utilizando a API [REST Countries](https://restcountries.com/).
+Este mini-projeto foi desenvolvido com o objetivo de praticar recursos do Next.js 15, consumindo a REST Countries API para exibir uma interface de países com detalhes como bandeira, população, idiomas e países vizinhos.
 
-## 🔨 Requisitos
-- Utilize a [API REST Countries](https://restcountries.com/) para obter os dados dos países.
-- Utilize o Next.js na versão mais atual para construir a estrutura do projeto e gerenciar as rotas da aplicação.
-- Garanta que sua aplicação se comporta bem em celulares, tablets e desktops.
-- Implemente a funcionalidade de exibir uma lista de países, mostrando sua bandeira e seu nome em português.
-- Ao clicar em um país, você deverá exibir em uma nova rota a página de detalhes do país
-  - Exiba a capital, população, continente e região e as línguas faladas no país.
-  - Exiba o número da população em números simplificados, _por exemplo: 1.000.000 deve ser 1M e 1000 deve ser 1K._
-  - Exiba uma lista dos países que fazem fronteira com o país exibido. Ao clicar em um dos países que fazem fronteira, redirecione para a página desse país.
-- Faça o deploy da sua aplicação e submeta no Codante.
 
-## 🔨 Desafios extras para quem quer ir além
-- Implemente uma sessão de "países que falam a mesma língua", abaixo dos "países que fazem fronteira".
-- Implemente uma busca na lista de países.
 
-## 🔍 Dicas
-- Estude sobre React 18 e Server Components.
-- Utilize um framework CSS, como Tailwind, para ganhar agilidade na implementação.
+## 🧪 Tecnologias Utilizadas
 
-## 🎨 Design Sugerido
-Temos uma sugestão de design no Figma. Mas sinta-se livre para utilizar a criatividade e fazer o seu próprio design.
+Framework: Next.js 15
 
-🔗 [Link do Figma](https://www.figma.com/file/suvmja6210ggZOO6Cpehjl/Mini-Projetos---Codante.io?type=design&node-id=1316-4&t=b5wBErhDdCzTdDl6-0)
+Linguagens: TypeScript, HTML, CSS, JavaScript
 
-![image](https://github.com/codante-io/mp-lista-de-paises-next/assets/6475893/5f35397c-f71e-4319-90b1-2ba970600a88)
+API pública: REST Countries
 
-## 👉🏽 Sobre esse mini-projeto
-### Tecnologias sugeridas
-**NextJS 13**
+Recursos do App Router:
 
-- `Server Components`
-- `Data fetching`
-- `Nested layouts`
-- `Routes`
-- `pages.tsx`
-- `layout.tsx`
-- `error.tsx`
-- `loading.tsx`
+Server Components
 
-### Pré-requisitos
-- `React`
-- `HTML, CSS, JavaScript`
+Data Fetching (assincrônico com fetch)
+
+Nested Layouts (layout.tsx)
+
+Rotas dinâmicas ([name]/page.tsx)
+
+Tratamento de loading (loading.tsx) e erro (error.tsx)
+
+
+
+## 💡 Funcionalidades
+
+✅ Listagem de países com nome em português e bandeira
+
+✅ Página de detalhes ao clicar em um país:
+
+Capital, continente, sub-região
+
+População (com formatação compacta, ex: 1M, 25K)
+
+Línguas faladas
+
+Países que fazem fronteira (com link para navegar entre eles)
+
+✅ Design responsivo: funciona em desktops, tablets e celulares
+
+✅ Navegação fluida com componentes assíncronos (Server Components)
+
+
+
+## 🔗 API Utilizada
+
+GET https://restcountries.com/v3.1/all?fields=name,flags,capital,region,translations,subregion,population,languages,borders,cca3
+
+
+
+## 🚀 Como rodar localmente 
+
+# 1. Clone o repositório
+git clone https://github.com/debizinha-santos/mp-lista-de-paises-next.git
+cd mp-lista-de-paises-next
+
+# 2. Instale as dependências
+npm install
+
+# 3. Execute em ambiente de desenvolvimento
+npm run dev
+
+# Acesse http://localhost:3000/
+
+⚠️ O comando npm run build está sendo ajustado devido à tipagem de rotas dinâmicas com o App Router. Para testes e documentação, use npm run dev.
+
+
 
 ## ❓ FAQ
-### Posso utilizar outros frameworks ou outras versões do Next?
-Esse projeto foi pensado para praticar a versão 13 do NextJS, utilizando React 18 com Server Components. Por isso, a resolução oficial será feita dessa forma.
+Posso usar outra versão do Next.js?
+Este projeto foi feito para praticar a versão 13 do Next.js, com foco no novo sistema de roteamento (App Router). Sinta-se livre para adaptar para versões diferentes, mas a estrutura atual usa Server Components.
 
-Sinta-se livre para fazer de outras maneiras, caso você esteja estudando outros conteúdos. Mas considere que a solução oficial poderá não cobrir isso. 
+Posso usar features experimentais?
+Sim! Como o projeto é voltado ao aprendizado, você pode explorar recursos ainda em fase alpha/beta, com atenção à documentação oficial.
 
-### Posso usar features experimentais do Next?
-Sim. Algumas features ainda estão em alpha e portanto não são recomendadas para uso em produção. Como esse se trata de um projeto para aprendizado, você pode aproveitar para experimentar essas features.
 
-## Inspiração
-[REST Countries API with color theme switcher](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
+
+## 📚 Inspiração
+
+Desafio inspirado no projeto:
+
+REST Countries API with color theme switcher – Frontend Mentor
