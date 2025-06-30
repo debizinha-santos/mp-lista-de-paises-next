@@ -44,6 +44,16 @@ async function getCoutryBordersByName(name: string) {
   });
 }
 
+async function getCountriesByLanguage(language: string): Promise<Country[]> {
+  const res = await fetch(
+    `https://restcountries.com/v3.1/all?fields=name,flags,capital,region,translations,subregion,population,languages,borders,cca3`
+  );
+  const countries: Country[] = await res.json();
+  return countries.filter((country) =>
+    Object.values(country.languages || {}).includes(language)
+  );
+}
+
 export default async function CountryPage({
   params: { name },
 }: {
@@ -52,6 +62,9 @@ export default async function CountryPage({
   const country = await getCountrybyName(decodeURI(name));
   const formatter = Intl.NumberFormat("pt-BR", { notation: "compact" });
   const borderCountries = await getCoutryBordersByName(decodeURI(name));
+  const countriesWithSameLanguage = await getCountriesByLanguage(
+    Object.values(country.languages || {})[0] || ""
+  );
 
   return (
     <div className="flex flex-col container">
@@ -107,18 +120,32 @@ export default async function CountryPage({
         </div>
       </article>
       <section>
-        <h3 className="mt-12 text-2xl font-bold text-gray-700">
+        <h3 className="mt-12 text-2xl font-bold text-gray-700 my-5">
           Países que fazem fronteira
         </h3>
-        <div className="grid grid-cols-5 gap-3 w-full">
+        <div className="grid grid-cols-5 gap-3 w-full my-8">
           {borderCountries?.map((border) => (
-              <CountryCard {...border}/>
-          ))} 
-          Não há países vizinhos
-          </div>
-
+            <CountryCard {...border} />
+          ))}
+        </div>
       </section>
-
+      <section>
+        <h3 className="mt-12 text-2xl font-bold text-gray-700 my-5">
+          Países com o mesmo idioma
+        </h3>
+<div className="grid grid-cols-5 gap-3 w-full mb-8">
+  {countriesWithSameLanguage?.map((country) => (
+    <CountryCard
+      key={country.cca3}
+      name={country.name.common}
+      ptName={country.translations.por.common}
+      flag={country.flags.svg}
+      alt={country.flags.alt}
+    />
+  ))}
+</div>
+      </section>
+      
     </div>
   );
 }
