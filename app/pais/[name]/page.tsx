@@ -123,7 +123,7 @@ export default async function CountryPage({
         <h3 className="mt-12 text-2xl font-bold text-gray-700 my-5">
           Países que fazem fronteira
         </h3>
-        <div className="grid grid-cols-5 gap-3 w-full my-8">
+        <div className="container grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-cols-5 gap-2 grid w-full mt-16 ">
           {borderCountries?.map((border) => (
             <CountryCard {...border} />
           ))}
@@ -133,7 +133,7 @@ export default async function CountryPage({
         <h3 className="mt-12 text-2xl font-bold text-gray-700 my-5">
           Países com o mesmo idioma
         </h3>
-<div className="grid grid-cols-5 gap-3 w-full mb-8">
+<div className="container grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-cols-5 gap-2 grid w-full mt-16 ">
   {countriesWithSameLanguage?.map((country) => (
     <CountryCard
       key={country.cca3}
