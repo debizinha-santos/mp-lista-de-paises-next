@@ -121,7 +121,7 @@ export default async function CountryPage({ params }: { params: Promise<{ name: 
         <h3 className="mt-12 text-2xl font-bold text-gray-700 my-5">
           Países que fazem fronteira
         </h3>
-        <div className="container grid gap-2 w-full mt-16 grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+        <div className="container grid gap-2 w-full mt-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {borderCountries?.map((border) => (
             <CountryCard {...border} />
           ))}
@@ -131,7 +131,7 @@ export default async function CountryPage({ params }: { params: Promise<{ name: 
         <h3 className="mt-12 text-2xl font-bold text-gray-700 my-5">
           Países com o mesmo idioma
         </h3>
-        <div className="container grid gap-2 w-full mt-16 grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+        <div className="container grid gap-2 w-full mt-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {countriesWithSameLanguage?.map((country) => (
             <CountryCard
               key={country.cca3}
