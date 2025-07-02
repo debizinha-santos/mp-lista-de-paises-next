@@ -66,7 +66,7 @@ export default async function CountryPage({ params }: { params: Promise<{ name: 
   );
   return (
     <div className="flex flex-col container">
-      <h1 className="text-5xl font-bold text-gray-800 mt-16 text-center">
+      <h1 className="text-5xl font-bold text-gray-800 mt-16 text-center ">
         {country.translations.por.common}
       </h1>
       <Link className="flex items-center py-2" href="/">
@@ -79,7 +79,7 @@ export default async function CountryPage({ params }: { params: Promise<{ name: 
         />
         Voltar
       </Link>
-      <article className="flex justify-between p-10 min-w-full bg-white rounded-xl mt-10">
+      <article className="flex justify-between p-15 min-w-full bg-white rounded-xl mt-10">
         <section>
           {country.capital && (
             <h2 className="text-xl text-gray-800 mt-3">
@@ -108,7 +108,7 @@ export default async function CountryPage({ params }: { params: Promise<{ name: 
             </h2>
           )}
         </section>
-        <div className="relative w-96 h-auto p-2 overflow-hidden rounded-xl shadow-md">
+        <div className="relative w-96 h-auto p-2 overflow-hidden rounded-xl shadow-md ">
           <Image
             src={country.flags.svg}
             alt={country.flags.alt}

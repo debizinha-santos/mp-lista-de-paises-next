@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
-import Image from 'next/image';
+import NavBar from "@/components/navBar";
 
 const NunitoSans = Nunito_Sans({
-  subsets: ["latin"]
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -19,23 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={NunitoSans.className}
-      >
-        <main className="bg-gray-100 min-h-screen flex-col flex items-center">
-          <nav className="w-full bg-white h-16 flex items-center justify-center">
-            <section className="container flex items-center gap-4">
-              <Image
-              width={38}
-              height={38} 
-              src="/Logo.svg" alt="Logo da aplicação"
-              />
-              <h1 className="font-bold text-2xl">Lista de países</h1>
-              
-            </section>
-          </nav>
+      <body className={NunitoSans.className}>
+        <main className="bg-white min-h-screen flex-col flex items-center w-full">
+          <NavBar />
           {children}
-          </main>
+        </main>
       </body>
     </html>
   );
