@@ -50,7 +50,7 @@ export default async function Home() {
   const countries = await getCountries();
 
   return (
-    <section className="container grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-cols-5 gap-2 grid w-full mt-16 ">
+    <section className="container grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2 grid w-full mt-16 ">
       {countries.map((country) => (
         <CountryCard 
         name={country.name.common} 

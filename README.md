@@ -55,8 +55,8 @@ GET https://restcountries.com/v3.1/all?fields=name,flags,capital,region,translat
 ## 🚀 Como rodar localmente 
 
 # 1. Clone o repositório
-git clone https://github.com/debizinha-santos/mp-lista-de-paises-next.git
-cd mp-lista-de-paises-next
+- git clone https://github.com/debizinha-santos/mp-lista-de-paises-next.git
+- cd mp-lista-de-paises-next
 
 # 2. Instale as dependências
 npm install
@@ -66,8 +66,12 @@ npm run dev
 
 # Acesse http://localhost:3000/
 
-⚠️ O comando npm run build está sendo ajustado devido à tipagem de rotas dinâmicas com o App Router. Para testes e documentação, use npm run dev.
 
+
+## Como acessar o projeto
+
+Acesse em seu navegador: 
+https://mp-lista-de-paises-next-eight.vercel.app/
 
 
 ## ❓ FAQ
