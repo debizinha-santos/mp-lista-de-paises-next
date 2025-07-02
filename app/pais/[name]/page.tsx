@@ -1,3 +1,5 @@
+"use server";
+
 import Link from "next/link";
 import Image from "next/image";
 import CountryCard from "@/components/countrycard";
@@ -54,18 +56,14 @@ async function getCountriesByLanguage(language: string): Promise<Country[]> {
   );
 }
 
-export default async function CountryPage({
-  params: { name },
-}: {
-  params: { name: string };
-}) {
+export default async function CountryPage({ params }: { params: Promise<{ name: string }> }) {
+  const { name } = await params;
   const country = await getCountrybyName(decodeURI(name));
   const formatter = Intl.NumberFormat("pt-BR", { notation: "compact" });
   const borderCountries = await getCoutryBordersByName(decodeURI(name));
   const countriesWithSameLanguage = await getCountriesByLanguage(
     Object.values(country.languages || {})[0] || ""
   );
-
   return (
     <div className="flex flex-col container">
       <h1 className="text-5xl font-bold text-gray-800 mt-16 text-center">
@@ -133,19 +131,18 @@ export default async function CountryPage({
         <h3 className="mt-12 text-2xl font-bold text-gray-700 my-5">
           Países com o mesmo idioma
         </h3>
-<div className="container grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-cols-5 gap-2 grid w-full mt-16 ">
-  {countriesWithSameLanguage?.map((country) => (
-    <CountryCard
-      key={country.cca3}
-      name={country.name.common}
-      ptName={country.translations.por.common}
-      flag={country.flags.svg}
-      alt={country.flags.alt}
-    />
-  ))}
-</div>
+        <div className="container grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-cols-5 gap-2 grid w-full mt-16 ">
+          {countriesWithSameLanguage?.map((country) => (
+            <CountryCard
+              key={country.cca3}
+              name={country.name.common}
+              ptName={country.translations.por.common}
+              flag={country.flags.svg}
+              alt={country.flags.alt}
+            />
+          ))}
+        </div>
       </section>
-      
     </div>
   );
 }
