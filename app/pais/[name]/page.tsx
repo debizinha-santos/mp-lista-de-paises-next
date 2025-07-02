@@ -65,11 +65,11 @@ export default async function CountryPage({ params }: { params: Promise<{ name: 
     Object.values(country.languages || {})[0] || ""
   );
   return (
-    <div className="flex flex-col container">
-      <h1 className="text-5xl font-bold text-gray-800 mt-16 text-center ">
+    <div className="flex flex-col container ">
+      <h1 className="text-5xl font-bold text-gray-800 mt-16 text-center m-4">
         {country.translations.por.common}
       </h1>
-      <Link className="flex items-center py-2" href="/">
+      <Link className="flex items-center py-2 shadow" href="/">
         <Image
           src="/arrow-back.svg"
           alt="Voltar"
@@ -79,7 +79,7 @@ export default async function CountryPage({ params }: { params: Promise<{ name: 
         />
         Voltar
       </Link>
-      <article className="flex justify-between p-15 min-w-full bg-white rounded-xl mt-10">
+      <article className="flex justify-between p-10 min-w-full bg-white rounded-xl mt-10 bg-white border border-gray-200 rounded-xl ">
         <section>
           {country.capital && (
             <h2 className="text-xl text-gray-800 mt-3">
@@ -123,8 +123,8 @@ export default async function CountryPage({ params }: { params: Promise<{ name: 
         </h3>
         <div className="container grid gap-2 w-full mt-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {borderCountries?.map((border) => (
-            <CountryCard {...border} />
-          ))}
+  <CountryCard key={border.name} {...border} />
+))}
         </div>
       </section>
       <section>
